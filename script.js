@@ -219,3 +219,86 @@ delButton.addEventListener("click", deleteLastChar);
 clearButton.addEventListener("click", clearAll);
 
 
+// Keyboard support (experimental)
+
+document.addEventListener('keydown', (e) => {
+  const key = e.key;
+  
+  // Handle digit keys (0-9)
+  if (key >= '0' && key <= '9') {
+    if (justCalculated) {
+      display.textContent = "0";
+      justCalculated = false;
+    }
+    
+    if (waitingForSecondNumber) {
+      display.textContent = "0";
+      waitingForSecondNumber = false;
+    }
+    
+    if (display.textContent.length >= 16) {
+      return;
+    }
+    
+    if (display.textContent === "0") {
+      display.textContent = key;
+    } else {
+      display.textContent += key;
+    }
+  }
+  
+  // Handle decimal point
+  if (key === '.') {
+    if (justCalculated) {
+      display.textContent = "0";
+      justCalculated = false;
+    }
+    
+    if (waitingForSecondNumber) {
+      display.textContent = "0";
+      waitingForSecondNumber = false;
+    }
+    
+    if (display.textContent.includes(".")) {
+      return;
+    }
+    if (display.textContent.length >= 16) {
+      return;
+    }
+    if (display.textContent === "0") {
+      display.textContent = "0.";
+    } else {
+      display.textContent += '.';
+    }
+  }
+  
+  // Handle operators
+  if (key === '+') {
+    handleOperator('+');
+  }
+  if (key === '-') {
+    handleOperator('-');
+  }
+  if (key === '*') {
+    handleOperator('x');
+  }
+  if (key === '/') {
+    e.preventDefault(); // Prevent browser's quick find feature
+    handleOperator('÷');
+  }
+  
+  // Handle Enter for equals
+  if (key === 'Enter') {
+    handleEquals();
+  }
+  
+  // Handle Escape for clear all
+  if (key === 'Escape') {
+    clearAll();
+  }
+  
+  // Handle Backspace for delete
+  if (key === 'Backspace') {
+    deleteLastChar();
+  }
+});
