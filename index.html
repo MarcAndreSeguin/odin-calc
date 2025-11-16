@@ -1,48 +1,59 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Calculator - The Odin Project</title>
-    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="styles.css" />
     <script src="script.js" defer></script>
-</head>
-<body>
-   <div class="calculator">
+  </head>
+  <body>
+    <div class="container">
+      <div class="calculator">
         <div class="display">0</div>
-        
+
         <div class="button-container">
-            <div class="left-column">
-                <button>%</button>
-                <button>√</button>
-                <button>DEL</button>
-                <button>CLR</button>
-            </div>
-            
-            <div class="number-pad">
-                <button>7</button>
-                <button>8</button>
-                <button>9</button>
-                <button>4</button>
-                <button>5</button>
-                <button>6</button>
-                <button>1</button>
-                <button>2</button>
-                <button>3</button>
-                <button>0</button>
-                <button>.</button>
-                <button>+/-</button>
-            </div>
-            
-            <div class="right-column">
-                <button>÷</button>
-                <button>x</button>
-                <button>-</button>
-                <button class="tall">+</button>
-            </div>
+          <div class="left-column">
+            <button>%</button>
+            <button>√</button>
+            <button>DEL</button>
+            <button>CLR</button>
+          </div>
+
+          <div class="number-pad">
+            <button>7</button>
+            <button>8</button>
+            <button>9</button>
+            <button>4</button>
+            <button>5</button>
+            <button>6</button>
+            <button>1</button>
+            <button>2</button>
+            <button>3</button>
+            <button>0</button>
+            <button>.</button>
+            <button>+/-</button>
+          </div>
+
+          <div class="right-column">
+            <button>÷</button>
+            <button>x</button>
+            <button>-</button>
+            <button class="tall">+</button>
+          </div>
         </div>
-        
+
         <button class="equals">=</button>
+      </div>
+      
+      <p class="info">
+        <strong>Calculator Info:</strong> Maximum 16 digits on display. Long
+        decimals are automatically rounded to fit. Division by zero shows an
+        error message. Square root only works on non-negative numbers.
+        <br><br>
+        <strong>Keyboard support:</strong> digits (0-9), operators (+, -, *, /),
+        decimal (.), Enter (=), Escape (clear all), Backspace (delete).
+      </p>
     </div>
-</body>
+  </body>
 </html>
